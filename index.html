@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hong Kong Company Audit Report | SME Brother</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E9C8;
+    --navy: #0A1628;
+    --navy-mid: #122040;
+    --navy-light: #1E3460;
+    --slate: #3B5078;
+    --white: #FAFBFD;
+    --cream: #F8F4EC;
+    --text: #1A2540;
+    --text-muted: #5A6A85;
+    --border: rgba(201,168,76,0.25);
+    --shadow: 0 20px 60px rgba(10,22,40,0.12);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* ─── HEADER ─────────────────────────────────────────── */
+  header {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--navy);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .logo-sub {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  nav a {
+    color: rgba(250,251,253,0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy) !important;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.9; }
+
+  /* ─── HERO ───────────────────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 40px 90px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 50%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 80% at 10% 80%, rgba(30,52,96,0.6) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .hero-badge span {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.12;
+    margin-bottom: 24px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    line-height: 1.75;
+    color: rgba(250,251,253,0.7);
+    margin-bottom: 40px;
+  }
+
+  .hero-desc a {
+    color: var(--gold-light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.45);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .btn-outline:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+  }
+
+  /* Hero stats */
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: background 0.2s;
+  }
+
+  .stat-card:hover { background: rgba(201,168,76,0.06); }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.05));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .stat-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-text p {
+    font-size: 13px;
+    color: rgba(250,251,253,0.55);
+    font-weight: 500;
+  }
+
+  /* ─── SECTION BASE ───────────────────────────────────── */
+  section { width: 100%; }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+    display: block;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  h2 em { font-style: italic; color: var(--gold); }
+
+  .section-intro {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 680px;
+  }
+
+  /* ─── WHAT IS SECTION ────────────────────────────────── */
+  .what-is {
+    padding: 100px 40px;
+    background: var(--cream);
+  }
+
+  .what-is-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .what-is-content p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .what-is-content p:last-child { margin-bottom: 0; }
+
+  .highlight-box {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .highlight-box::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 180px;
+    color: rgba(201,168,76,0.08);
+    line-height: 1;
+  }
+
+  .highlight-box p {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.65;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+  }
+
+  .highlight-box .attr {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ─── WHY IT MATTERS ─────────────────────────────────── */
+  .why-matters {
+    padding: 100px 40px;
+    background: var(--white);
+  }
+
+  .matters-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 64px;
+  }
+
+  .matters-header .section-intro { max-width: 500px; }
+
+  .matters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .matter-card {
+    border: 1px solid #E5EAF0;
+    border-radius: 16px;
+    padding: 36px 32px;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .matter-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .matter-card:hover {
+    border-color: var(--gold-pale);
+    box-shadow: 0 12px 40px rgba(10,22,40,0.08);
+    transform: translateY(-4px);
+  }
+
+  .matter-card:hover::after { transform: scaleX(1); }
+
+  .matter-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  .matter-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .matter-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .matter-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ─── WHO NEEDS ──────────────────────────────────────── */
+  .who-needs {
+    padding: 100px 40px;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .who-needs::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 70% at 90% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+  }
+
+  .who-needs .container { position: relative; z-index: 1; }
+
+  .who-needs .section-label { color: var(--gold-light); }
+  .who-needs .section-label::before { background: var(--gold-light); }
+  .who-needs h2 { color: var(--white); }
+  .who-needs .section-intro { color: rgba(250,251,253,0.65); }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .who-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .who-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+
+  .who-check {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .who-item-text h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .who-item-text p {
+    font-size: 14px;
+    color: rgba(250,251,253,0.55);
+    line-height: 1.5;
+  }
+
+  .prep-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 20px;
+    padding: 40px;
+  }
+
+  .prep-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .prep-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .prep-step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .prep-step p {
+    font-size: 15px;
+    color: rgba(250,251,253,0.7);
+    line-height: 1.6;
+    padding-top: 4px;
+  }
+
+  /* ─── AUDIT PROCESS ──────────────────────────────────── */
+  .audit-process {
+    padding: 100px 40px;
+    background: var(--cream);
+  }
+
+  .process-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .process-header .section-intro {
+    margin: 0 auto;
+  }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 12%;
+    right: 12%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    z-index: 0;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--navy);
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 0 0 8px var(--cream);
+    transition: transform 0.3s;
+  }
+
+  .process-step:hover .step-circle { transform: scale(1.1); }
+
+  .process-step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .process-step p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  /* ─── AUDIT OPINIONS ─────────────────────────────────── */
+  .opinions {
+    padding: 100px 40px;
+    background: var(--white);
+  }
+
+  .opinions-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 60px;
+  }
+
+  .opinions-intro p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .cta-inline {
+    margin-top: 32px;
+    padding: 20px 24px;
+    background: var(--navy);
+    border-radius: 12px;
+  }
+
+  .cta-inline p {
+    font-size: 14px;
+    color: rgba(250,251,253,0.7) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .cta-inline a {
+    color: var(--gold-light);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 15px;
+  }
+
+  .opinion-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .opinion-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+    border: 1px solid #E5EAF0;
+    border-radius: 14px;
+    padding: 24px 28px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .opinion-card:hover {
+    border-color: var(--gold-pale);
+    box-shadow: 0 8px 30px rgba(10,22,40,0.06);
+  }
+
+  .opinion-tag {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .tag-green { background: #E8F5E9; color: #2E7D32; }
+  .tag-yellow { background: #FFF9E6; color: #B8860B; }
+  .tag-orange { background: #FFF3E0; color: #E65100; }
+  .tag-red { background: #FEEBEE; color: #C62828; }
+
+  .opinion-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .opinion-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  /* ─── CHALLENGES & PREP ──────────────────────────────── */
+  .challenges {
+    padding: 100px 40px;
+    background: var(--cream);
+  }
+
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .challenge-panel {
+    background: var(--white);
+    border: 1px solid #E5EAF0;
+    border-radius: 20px;
+    padding: 44px 40px;
+  }
+
+  .challenge-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .challenge-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .challenge-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .challenge-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 9px;
+    flex-shrink: 0;
+  }
+
+  .challenge-list.solutions li::before { background: #2E7D32; }
+
+  /* ─── TRUST CTA ──────────────────────────────────────── */
+  .trust-cta {
+    padding: 100px 40px;
+    background: var(--navy);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .trust-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  }
+
+  .trust-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .trust-cta .section-label { justify-content: center; color: var(--gold); }
+  .trust-cta .section-label::before { display: none; }
+
+  .trust-cta h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .trust-cta p {
+    font-size: 17px;
+    color: rgba(250,251,253,0.65);
+    line-height: 1.75;
+    margin-bottom: 48px;
+  }
+
+  .trust-cta p a {
+    color: var(--gold-light);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ─── FOOTER ─────────────────────────────────────────── */
+  footer {
+    background: #060F1C;
+    padding: 72px 40px 36px;
+  }
+
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 40px;
+  }
+
+  .footer-brand p {
+    font-size: 15px;
+    color: rgba(250,251,253,0.45);
+    line-height: 1.75;
+    margin-top: 20px;
+    margin-bottom: 28px;
+    max-width: 300px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(250,251,253,0.55);
+    text-decoration: none;
+    font-size: 16px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+
+  .footer-col h4 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(250,251,253,0.35);
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-col ul li a {
+    color: rgba(250,251,253,0.55);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .footer-bottom p {
+    font-size: 13px;
+    color: rgba(250,251,253,0.3);
+  }
+
+  .footer-bottom a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .hero-inner, .who-grid, .what-is-grid { grid-template-columns: 1fr; gap: 48px; }
+    .matters-grid { grid-template-columns: repeat(2, 1fr); }
+    .opinions-layout { grid-template-columns: 1fr; }
+    .process-timeline { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .process-timeline::before { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .matters-header { flex-direction: column; }
+  }
+
+  @media (max-width: 768px) {
+    .header-inner { padding: 0 20px; }
+    nav { display: none; }
+    .hero, .what-is, .why-matters, .who-needs, .audit-process, .opinions, .challenges, .trust-cta { padding-left: 20px; padding-right: 20px; }
+    .matters-grid, .challenges-grid { grid-template-columns: 1fr; }
+    .process-timeline { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .container { padding: 0 20px; }
+  }
+
+  /* ─── ANIMATIONS ─────────────────────────────────────── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ════════════════════════════════════════════ -->
+<header>
+  <div class="header-inner">
+    <a href="https://hongkong-company.pages.dev/" class="logo">
+      <div class="logo-icon">HK</div>
+      <div class="logo-text">
+        <span class="logo-name">HK Business</span>
+        <span class="logo-sub">Audit & Compliance</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#what-is">What Is It?</a>
+      <a href="#why-matters">Why It Matters</a>
+      <a href="#opinions">Audit Opinions</a>
+      <a href="#prepare">Preparation</a>
+      <a href="https://smebrother.com/" class="nav-cta">Get Expert Help →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge fade-up">
+        <div class="hero-badge-dot"></div>
+        <span>Hong Kong Compliance 2025</span>
+      </div>
+      <h1 class="fade-up delay-1">
+        Your Complete Guide to the <em>Hong Kong Company Audit Report</em>
+      </h1>
+      <p class="hero-desc fade-up delay-2">
+        In Hong Kong's world-class business environment, an audit report is far more than paperwork — it is your company's financial credibility, packaged and verified. Discover everything you need to know, and explore expert services at <a href="https://hongkong-company.pages.dev/" target="_blank" rel="noopener">hongkong-company.pages.dev</a>.
+      </p>
+      <div class="hero-buttons fade-up delay-3">
+        <a href="https://smebrother.com/" class="btn-primary" target="_blank" rel="noopener">
+          Get Audit Support ↗
+        </a>
+        <a href="#what-is" class="btn-outline">Learn More ↓</a>
+      </div>
+    </div>
+    <div class="hero-visual fade-up delay-4">
+      <div class="stat-card">
+        <div class="stat-icon">🏦</div>
+        <div class="stat-text">
+          <h3>100%</h3>
+          <p>Independent auditor verification ensures objective financial review</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📋</div>
+        <div class="stat-text">
+          <h3>4 Types</h3>
+          <p>Distinct audit opinion categories — knowing them protects your business</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🌏</div>
+        <div class="stat-text">
+          <h3>Global Trust</h3>
+          <p>Audited statements recognized by banks, investors & international partners</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT IS ════════════════════════════════════════════ -->
+<section class="what-is" id="what-is">
+  <div class="container">
+    <div class="section-label">Foundation</div>
+    <h2>What Is a <em>Hong Kong Company Audit Report?</em></h2>
+    <div class="what-is-grid">
+      <div class="what-is-content">
+        <p>A Hong Kong company audit report is a formal opinion issued by an independent auditor after a thorough review of a company's financial records and statements. Its primary purpose is to determine whether those financial statements present a fair and accurate picture of the company's actual financial position.</p>
+        <p>In practical terms, it is an expert-level examination of your company's accounts. The auditor reviews records in detail, verifies supporting documents, and evaluates whether the financial statements have been prepared in accordance with professional and legal standards.</p>
+        <p>At the conclusion of the process, the auditor issues a report explaining whether the financial statements can be relied upon — adding crucial credibility that internal reporting alone cannot provide. This independent verification matters deeply because it gives stakeholders objective assurance from a qualified external professional.</p>
+      </div>
+      <div class="highlight-box">
+        <p>"An audit report does more than confirm numbers. It reflects the overall discipline and reliability of the business itself — and in a market where trust matters deeply, that distinction is everything."</p>
+        <span class="attr">— HK Audit Standards, Best Practice</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY IT MATTERS ════════════════════════════════════ -->
+<section class="why-matters" id="why-matters">
+  <div class="container">
+    <div class="matters-header">
+      <div>
+        <div class="section-label">Significance</div>
+        <h2>Why the Audit Report <em>Matters</em></h2>
+      </div>
+      <p class="section-intro">In a competitive business market like Hong Kong, trust is one of the most valuable assets any company can build. A professionally prepared audit report actively creates that trust across every stakeholder relationship.</p>
+    </div>
+    <div class="matters-grid">
+      <div class="matter-card">
+        <div class="matter-num">01</div>
+        <span class="matter-icon">🏛️</span>
+        <h3>Bank Financing & Credit</h3>
+        <p>Financial institutions require audited statements before approving loans or credit facilities. An unqualified audit report is often the single most important document in any lending decision.</p>
+      </div>
+      <div class="matter-card">
+        <div class="matter-num">02</div>
+        <span class="matter-icon">📈</span>
+        <h3>Investor Confidence</h3>
+        <p>Investors — local and international — rely on audited accounts to evaluate risk and opportunity. Audited statements signal that leadership is accountable and financial controls are sound.</p>
+      </div>
+      <div class="matter-card">
+        <div class="matter-num">03</div>
+        <span class="matter-icon">🤝</span>
+        <h3>Overseas Partnerships</h3>
+        <p>International business partners frequently request audited financials before entering agreements. Your audit report can be the deciding factor in securing a transformative deal.</p>
+      </div>
+      <div class="matter-card">
+        <div class="matter-num">04</div>
+        <span class="matter-icon">📊</span>
+        <h3>Shareholder Assurance</h3>
+        <p>Shareholders deserve transparency. Audited financial statements give them independent confirmation that the company's reported performance is real, accurate, and properly governed.</p>
+      </div>
+      <div class="matter-card">
+        <div class="matter-num">05</div>
+        <span class="matter-icon">🔍</span>
+        <h3>Internal Decision-Making</h3>
+        <p>The audit process itself is a practical business tool. Directors gain a clearer view of revenue patterns, cost structures, liabilities, and control weaknesses — insights that sharpen strategic planning.</p>
+      </div>
+      <div class="matter-card">
+        <div class="matter-num">06</div>
+        <span class="matter-icon">⚖️</span>
+        <h3>Regulatory Compliance</h3>
+        <p>Meeting your annual audit obligations protects the company from regulatory penalties and demonstrates responsible corporate governance to authorities, tax bodies, and the Companies Registry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHO NEEDS ══════════════════════════════════════════ -->
+<section class="who-needs" id="who-needs">
+  <div class="container">
+    <div class="section-label">Applicability</div>
+    <h2>Who Needs a <em>Company Audit Report</em> in Hong Kong?</h2>
+    <p class="section-intro">Many companies in Hong Kong are expected to maintain proper accounting records and prepare audited financial statements as part of their ongoing compliance responsibilities.</p>
+    <div class="who-grid">
+      <div class="who-list">
+        <div class="who-item">
+          <div class="who-check">✓</div>
+          <div class="who-item-text">
+            <h4>Active Limited Companies</h4>
+            <p>Companies that conduct business transactions and maintain annual reporting obligations with the Companies Registry.</p>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-check">✓</div>
+          <div class="who-item-text">
+            <h4>SMEs & Growing Businesses</h4>
+            <p>Even smaller companies may require audit reports depending on their legal status and business activity — not just large corporations.</p>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-check">✓</div>
+          <div class="who-item-text">
+            <h4>Companies Seeking Financing</h4>
+            <p>Any business applying for bank loans, credit, or investor funding will almost certainly need audited financial statements.</p>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-check">✓</div>
+          <div class="who-item-text">
+            <h4>Foreign-Invested Enterprises</h4>
+            <p>International companies operating through a Hong Kong entity must comply with local audit and reporting requirements.</p>
+          </div>
+        </div>
+      </div>
+      <div class="prep-box">
+        <h3>📌 Key Preparation Principles</h3>
+        <div class="prep-steps">
+          <div class="prep-step">
+            <div class="step-num">1</div>
+            <p>Maintain accurate, up-to-date accounting records throughout the entire financial year — not just at year-end.</p>
+          </div>
+          <div class="prep-step">
+            <div class="step-num">2</div>
+            <p>Organize bank statements, invoices, receipts, payroll records, tax documents, and contracts in a consistent filing system.</p>
+          </div>
+          <div class="prep-step">
+            <div class="step-num">3</div>
+            <p>Keep business and personal expenses strictly separated across all accounts and payment methods.</p>
+          </div>
+          <div class="prep-step">
+            <div class="step-num">4</div>
+            <p>Review financial statements before the audit begins and be ready to explain unusual or large transactions.</p>
+          </div>
+          <div class="prep-step">
+            <div class="step-num">5</div>
+            <p>Engage experienced accounting professionals early — timely advice leads to a smoother audit and better outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AUDIT PROCESS ══════════════════════════════════════ -->
+<section class="audit-process" id="process">
+  <div class="container">
+    <div class="process-header">
+      <div class="section-label">The Process</div>
+      <h2>What the <em>Auditor Reviews</em></h2>
+      <p class="section-intro">An auditor performs a detailed, structured examination designed to confirm that financial statements are supported by real, verifiable evidence — far beyond simply checking totals.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-circle">📁</div>
+        <h3>Document Collection</h3>
+        <p>Bank statements, invoices, receipts, tax records, contracts, and payroll information are gathered and organized for review.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">🔎</div>
+        <h3>Detailed Examination</h3>
+        <p>The auditor scrutinizes ledgers, questions unusual entries, reviews large transactions, and checks for missing documentation.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">✅</div>
+        <h3>Verification & Testing</h3>
+        <p>Evidence is cross-referenced and tested. Outstanding balances, inconsistent figures, and unclear expense claims are resolved.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">📄</div>
+        <h3>Report Issuance</h3>
+        <p>The auditor issues the formal report with a professional opinion on whether the statements present a true and fair view.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AUDIT OPINIONS ════════════════════════════════════ -->
+<section class="opinions" id="opinions">
+  <div class="container">
+    <div class="section-label">Outcomes</div>
+    <h2>Types of <em>Audit Opinions</em></h2>
+    <div class="opinions-layout">
+      <div class="opinions-intro">
+        <p>Not all audit reports lead to the same conclusion. The opinion issued depends entirely on the quality, completeness, and accuracy of your company's financial records. Understanding each type helps you know what to aim for — and what to avoid.</p>
+        <p>For most businesses, the goal is to achieve an unqualified opinion because it reflects strong financial management, sound recordkeeping, and reliable corporate governance.</p>
+        <div class="cta-inline">
+          <p>Need expert guidance on preparing for a clean audit? Our specialists at <a href="https://smebrother.com/" target="_blank" rel="noopener">Hong Kong Company Audit Report</a> are ready to help you achieve the best possible outcome for your business.</p>
+        </div>
+      </div>
+      <div class="opinion-cards">
+        <div class="opinion-card">
+          <span class="opinion-tag tag-green">Unqualified</span>
+          <div>
+            <h3>Clean Opinion — The Gold Standard</h3>
+            <p>The auditor concludes that financial statements are properly prepared and fairly represent the company's financial position. This is the best possible outcome and the benchmark all well-managed businesses should target.</p>
+          </div>
+        </div>
+        <div class="opinion-card">
+          <span class="opinion-tag tag-yellow">Qualified</span>
+          <div>
+            <h3>Qualified Opinion — Minor Issue Identified</h3>
+            <p>Most statements are acceptable, but one specific issue affects a portion of the report. The financial statements are still largely reliable, but the particular concern must be addressed in future periods.</p>
+          </div>
+        </div>
+        <div class="opinion-card">
+          <span class="opinion-tag tag-orange">Adverse</span>
+          <div>
+            <h3>Adverse Opinion — Significant Misstatement</h3>
+            <p>The financial statements do not accurately reflect the company's actual financial position. This is a serious finding that requires immediate attention and typically indicates fundamental issues with financial reporting.</p>
+          </div>
+        </div>
+        <div class="opinion-card">
+          <span class="opinion-tag tag-red">Disclaimer</span>
+          <div>
+            <h3>Disclaimer of Opinion — Insufficient Evidence</h3>
+            <p>The auditor was unable to gather enough evidence to form a reliable conclusion. This often arises from incomplete records, restricted access to information, or significant organizational uncertainty.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CHALLENGES & PREPARATION ═════════════════════════ -->
+<section class="challenges" id="prepare">
+  <div class="container">
+    <div class="section-label">Practical Guidance</div>
+    <h2>Common Challenges & <em>How to Overcome Them</em></h2>
+    <p class="section-intro">Most audit difficulties do not arise because a company is performing poorly — they arise because financial records are incomplete, delayed, or poorly organized. The good news: these are entirely preventable.</p>
+    <div class="challenges-grid">
+      <div class="challenge-panel">
+        <h3>⚠️ Common Audit Challenges</h3>
+        <ul class="challenge-list">
+          <li>Missing or misplaced receipts and source documents that cannot be traced</li>
+          <li>Bank accounts that have not been reconciled with the accounting ledger</li>
+          <li>Unclear or undocumented expense claims lacking proper authorization</li>
+          <li>Business and personal expenses mixed together in the same accounts</li>
+          <li>Inconsistent bookkeeping practices across different periods or departments</li>
+          <li>Delayed or slow responses to auditor queries that prolong the review process</li>
+          <li>Transactions recorded in the wrong period causing timing discrepancies</li>
+          <li>Incomplete records for related-party transactions or intercompany dealings</li>
+        </ul>
+      </div>
+      <div class="challenge-panel">
+        <h3>✅ Best Practice Solutions</h3>
+        <ul class="challenge-list solutions">
+          <li>Maintain consistent bookkeeping practices throughout the entire financial year</li>
+          <li>Perform monthly bank reconciliations rather than leaving them to year-end</li>
+          <li>Implement a clear expense policy with mandatory documentation and approvals</li>
+          <li>Maintain strictly separate business bank accounts, cards, and payment methods</li>
+          <li>Use accounting software with cloud backup to keep records current and accessible</li>
+          <li>Designate a point of contact for audit queries and respond promptly to all requests</li>
+          <li>Review cut-off procedures at year-end to ensure transactions fall in the right period</li>
+          <li>Engage a professional accountant well before the audit to review records in advance</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST CTA ══════════════════════════════════════════ -->
+<section class="trust-cta">
+  <div class="trust-cta-inner">
+    <div class="section-label">Take Action</div>
+    <h2>Build Trust, Build <em>Business</em></h2>
+    <p>
+      A Hong Kong company audit report is your company's most powerful statement of financial integrity. For shareholders, it delivers reassurance. For banks, it creates confidence. For directors, it enables smarter strategic decisions. When approached properly, the audit process is not a burden — it is an opportunity to strengthen your business. Ready to get started? Speak with our team at <a href="https://smebrother.com/" target="_blank" rel="noopener">SME Brother</a> today.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://smebrother.com/" class="btn-primary" target="_blank" rel="noopener">
+        Start with SME Brother ↗
+      </a>
+      <a href="https://hongkong-company.pages.dev/" class="btn-outline" target="_blank" rel="noopener">
+        HK Company Resources ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="https://hongkong-company.pages.dev/" class="logo">
+        <div class="logo-icon">HK</div>
+        <div class="logo-text">
+          <span class="logo-name">HK Business</span>
+          <span class="logo-sub">Audit & Compliance</span>
+        </div>
+      </a>
+      <p>Trusted guidance on Hong Kong company audits, compliance, and financial reporting for businesses of all sizes — from startups to established enterprises.</p>
+      <div class="social-links">
+        <a href="https://facebook.com" class="social-link" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+        <a href="https://twitter.com" class="social-link" aria-label="Twitter" target="_blank" rel="noopener">𝕏</a>
+        <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+        <a href="https://instagram.com" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+        <a href="https://youtube.com" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">▶</a>
+        <a href="https://wa.me/" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Company Audit</a></li>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Tax Compliance</a></li>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Bookkeeping</a></li>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Financial Reports</a></li>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Company Secretary</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://hongkong-company.pages.dev/" target="_blank" rel="noopener">HK Company Guide</a></li>
+        <li><a href="#what-is">What Is an Audit?</a></li>
+        <li><a href="#opinions">Audit Opinion Types</a></li>
+        <li><a href="#prepare">Preparation Tips</a></li>
+        <li><a href="#process">Audit Process</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">About SME Brother</a></li>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Contact Us</a></li>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Terms of Service</a></li>
+        <li><a href="https://smebrother.com/" target="_blank" rel="noopener">Get a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 HK Business Audit & Compliance. Expert services via <a href="https://smebrother.com/" target="_blank" rel="noopener">SME Brother</a>.</p>
+    <p>Designed for transparency, built for trust.</p>
+  </div>
+</footer>
+
+</body>
+</html>
